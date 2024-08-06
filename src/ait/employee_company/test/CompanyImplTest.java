@@ -6,11 +6,11 @@ import ait.employee_company.model.Employee;
 import ait.employee_company.model.Manager;
 import ait.employee_company.model.SalesManager;
 import ait.employee_company.model.Worker;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 class CompanyImplTest {
     Company company;
