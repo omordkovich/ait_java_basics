@@ -25,8 +25,8 @@ class CompanyImplTest {
         firma[2] = new SalesManager(3000, "Peter", "Jackson", 160, 50, 19000, 0.1);
         firma[3] = new SalesManager(4000, "Robin", "Good", 180, 45, 20000, 0.1);
 
-        for (int i = 0; i < firma.length; i++) {
-            company.addEmployee(firma[i]);
+        for (Employee employee : firma) {
+            company.addEmployee(employee);
         }
     }
 
