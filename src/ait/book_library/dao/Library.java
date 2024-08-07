@@ -18,4 +18,10 @@ public interface Library {
     //print out all books in library
     void printBooks();
 
+    //find all books from author
+    Book[] ofAuthor(String author);
+
+    //find all books from year 1 to year 2
+    Book[] findByYear(int year1, int year2);
+
 }

@@ -19,7 +19,7 @@ class LibraryImplTest {
         books = new Book[5];
         books[0] = new Book("Title 1", "Author 1", 2002, 1_111_111_111_112L);
         books[1] = new Book("Title 2", "Author 2", 1985, 1_111_111_111_113L);
-        books[2] = new Book("Title 3", "Author 3", 1999, 1_111_111_111_114L);
+        books[2] = new Book("Title 3", "Author 1", 1999, 1_111_111_111_114L);
         books[3] = new Book("Title 4", "Author 4", 2016, 1_111_111_111_115L);
 
         for (int i = 0; i < books.length; i++) {
@@ -60,5 +60,19 @@ class LibraryImplTest {
     @Test
     void printBooks() {
         library.printBooks();
+    }
+
+    @Test
+    void ofAuthor(){
+    Book[] expected = {books[0],books[2]};
+    Book[] actual = library.ofAuthor("Author 1");
+    assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    void findByYear(){
+        Book[] expected = {books[1],books[2]};
+        Book[] actual = library.findByYear(1980,2000);
+        assertArrayEquals(expected,actual);
     }
 }

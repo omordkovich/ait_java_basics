@@ -60,4 +60,38 @@ public class LibraryImpl implements Library {
             System.out.println(books[i]);
         }
     }
+
+    @Override
+    public Book[] ofAuthor(String author) {
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (books[i].getAuthor().equals(author)) {
+                count++;
+            }
+        }
+        Book[] booksOfAuthor = new Book[count];
+        for (int i = 0, j = 0; j < booksOfAuthor.length; i++) {
+            if (books[i].getAuthor().equals(author)) {
+                booksOfAuthor[j++] = books[i];
+            }
+        }
+        return booksOfAuthor;
+    }
+
+    @Override
+    public Book[] findByYear(int year1, int year2) {
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (books[i].getYearOfPublishing() >= year1 && books[i].getYearOfPublishing() <= year2) {
+                count++;
+            }
+        }
+        Book[] booksByYear = new Book[count];
+        for (int i = 0, j = 0; j < booksByYear.length; i++) {
+            if (books[i].getYearOfPublishing() >= year1 && books[i].getYearOfPublishing() <= year2) {
+                booksByYear[j++] = books[i];
+            }
+        }
+        return booksByYear;
+    }
 }
