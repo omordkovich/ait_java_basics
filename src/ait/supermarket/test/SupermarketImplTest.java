@@ -1,12 +1,11 @@
 package ait.supermarket.test;
 
-
+import ait.supermarket.model.Product;
 import ait.supermarket.dao.Supermarket;
 import ait.supermarket.dao.SupermarketImpl;
 import ait.supermarket.model.Food;
 import ait.supermarket.model.MeatFood;
 import ait.supermarket.model.MilkFood;
-import ait.supermarket.model.Product;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -45,14 +44,22 @@ class SupermarketImplTest {
 
     @Test
     void removeProduct() {
+        Product Victim = supermarket.removeProduct("11111111111111111112");
+        assertEquals(products[1], Victim);
+        assertNull(supermarket.removeProduct("11111111111110000000"));
     }
+
 
     @Test
     void findProductByBarcode() {
+        assertEquals(products[1], supermarket.findProductByBarcode("11111111111111111112"));
+        assertNull(supermarket.findProductByBarcode("11111111111110000002"));
     }
 
     @Test
     void updateProduct() {
+        supermarket.updateProduct("11111111111111111114", 10.90);
+        assertEquals(10.90, products[3].getPrice());
     }
 
     @Test
@@ -65,9 +72,11 @@ class SupermarketImplTest {
 
     @Test
     void totalCost() {
+        assertEquals(24.560000000000002, supermarket.totalCost());
     }
 
     @Test
     void averageCost() {
+        assertEquals(6.140000000000001, supermarket.averageCost());
     }
 }
