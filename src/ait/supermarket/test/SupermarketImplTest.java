@@ -44,8 +44,8 @@ class SupermarketImplTest {
 
     @Test
     void removeProduct() {
-        Product Victim = supermarket.removeProduct("11111111111111111112");
-        assertEquals(products[1], Victim);
+        Product victim = supermarket.removeProduct("11111111111111111112");
+        assertEquals(products[1], victim);
         assertNull(supermarket.removeProduct("11111111111110000000"));
     }
 
