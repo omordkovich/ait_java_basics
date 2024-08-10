@@ -79,4 +79,11 @@ class SupermarketImplTest {
     void averageCost() {
         assertEquals(6.140000000000001, supermarket.averageCost());
     }
+
+    @Test
+    void findOutOfDate() {
+        Product[] expected = {products[1], products[2]};
+        Product[] actual = supermarket.findOutOfDate(LocalDate.of(2024, 9, 9));
+        assertArrayEquals(expected, actual);
+    }
 }

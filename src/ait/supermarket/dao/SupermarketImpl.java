@@ -4,6 +4,7 @@ import ait.supermarket.model.Food;
 import ait.supermarket.model.Product;
 
 import java.time.LocalDate;
+import java.util.function.Predicate;
 
 public class SupermarketImpl implements Supermarket {
     Product[] products;
@@ -62,23 +63,7 @@ public class SupermarketImpl implements Supermarket {
 
     @Override
     public Product[] findProductByExpirationDate(LocalDate date) {
-        int count = 0;
-        for (int i = 0; i < size; i++) {
-            if (products[i] instanceof Food food) {
-                if (food.getExpDate().equals(date)) {
-                    count++;
-                }
-            }
-        }
-        Product[] myProducts = new Product[count];
-        for (int i = 0, j = 0; i < size; i++) {
-            if (products[i] instanceof Food food) {
-                if (food.getExpDate().equals(date)) {
-                    myProducts[j++] = products[i];
-                }
-            }
-        }
-        return myProducts;
+        return findProductByPredicate(product -> ((Food) product).getExpDate().equals(date));
     }
 
     @Override
@@ -94,4 +79,30 @@ public class SupermarketImpl implements Supermarket {
     public double averageCost() {
         return totalCost() / size;
     }
+
+    @Override
+    public Product[] findOutOfDate(LocalDate date) {
+        return findProductByPredicate(product -> ((Food) product).getExpDate().isBefore(date));
+    }
+
+    private Product[] findProductByPredicate(Predicate<Product> predicate) {
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (products[i] instanceof Food food) {
+                if (predicate.test(food)) {
+                    count++;
+                }
+            }
+        }
+        Product[] res = new Product[count];
+        for (int i = 0, j = 0; j < res.length; i++) {
+            if (products[i] instanceof Food food) {
+                if (predicate.test(products[i])) {
+                    res[j++] = products[i];
+                }
+            }
+        }
+        return res;
+    }
 }
+

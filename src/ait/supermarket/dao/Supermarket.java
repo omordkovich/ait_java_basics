@@ -19,4 +19,5 @@ public interface Supermarket {
 
     double averageCost();
 
+    Product[] findOutOfDate(LocalDate date);
 }
