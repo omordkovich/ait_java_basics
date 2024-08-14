@@ -20,7 +20,7 @@ public class OddEvenComparatorAppl {
 
         printArray(array);
         Arrays.sort(array, oddEvenComparator);
-        System.out.println("Sorted: first even (sorted) then odd (unsorted):");
+        System.out.println("Sorted: first even (unsorted) then odd (unsorted):");
 
         printArray(array);
 
