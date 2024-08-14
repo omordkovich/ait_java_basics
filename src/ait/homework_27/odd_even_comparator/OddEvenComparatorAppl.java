@@ -13,7 +13,7 @@ public class OddEvenComparatorAppl {
             }
         };
         fillArray(array);
-        System.out.println("Origin Array:");
+        System.out.println("Source array:");
         printArray(array);
         Arrays.sort(array, oddEvenComparator);
         System.out.println("Sorted: first even (sorted) then odd (unsorted):");
