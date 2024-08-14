@@ -9,14 +9,19 @@ public class OddEvenComparatorAppl {
         Comparator<Integer> oddEvenComparator = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return (o1 % 2 != 0) ? 1 : (o2 % 2 != 0) ? -1 : 0;
+                if ((o1 % 2 != 0 && o2 % 2 != 0) || (o1 % 2 == 0 && o2 % 2 == 0)) {
+                    return 0;
+                }
+                return (o1 % 2 != 0) ? 1 : -1;
             }
         };
         fillArray(array);
         System.out.println("Source array:");
+
         printArray(array);
         Arrays.sort(array, oddEvenComparator);
         System.out.println("Sorted: first even (sorted) then odd (unsorted):");
+
         printArray(array);
 
     }
