@@ -9,7 +9,7 @@ public class OddEvenComparatorAppl {
         Comparator<Integer> oddEvenComparator = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return (o1 % 2 != 0) ? 1 : (o2 % 2 != 0) ? -1 : o1.compareTo(o2);
+                return (o1 % 2 != 0) ? 1 : (o2 % 2 != 0) ? -1 : 0;
             }
         };
         fillArray(array);
