@@ -18,12 +18,12 @@ public class DateSortTest {
         comparator = (s1, s2) -> {
             if (s1.substring(6).equals(s2.substring(6))) {
                 if (s1.substring(3, 4).equals(s2.substring(3, 4))) {
-                    return Integer.compare(Integer.parseInt(s1.substring(0, 1)), Integer.parseInt(s2.substring(0, 1)));
+                    return s1.substring(0, 1).compareTo(s2.substring(0, 1));
                 } else {
-                    return Integer.compare(Integer.parseInt(s1.substring(3, 4)), Integer.parseInt(s2.substring(3, 4)));
+                    return s1.substring(3, 4).compareTo(s2.substring(3, 4));
                 }
             }
-            return Integer.compare(Integer.parseInt(s1.substring(6)), Integer.parseInt(s2.substring(6)));
+            return s1.substring(6).compareTo(s2.substring(6));
         };
     }
 
