@@ -59,7 +59,7 @@ class PetHotelImplTest {
     void testUpdatePet() {
         Pet myPet = new Dog(85512, "dog", 5, "Sharik", "husky", 102, 20.5);
         assertEquals(petHotel.updatePet(myPet), pets[1]);
-        assertEquals(5, myPet.getAge());
+        assertEquals(5, petHotel.updatePet(myPet).getAge());
         myPet = new Dog(00000, "dog", 5, "Sharik", "husky", 102, 20.5);
         assertNull(petHotel.updatePet(myPet));
     }
