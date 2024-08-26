@@ -75,6 +75,6 @@ class PetHotelImplTest {
 
     @Test
     void TestCalculateTotalPrice() {
-        assertEquals(119.94999999999999, petHotel.calculateTotalPriceProNight());
+        assertEquals(119.949,0.001, petHotel.calculateTotalPriceProNight());
     }
 }

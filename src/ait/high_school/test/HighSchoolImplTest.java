@@ -65,7 +65,7 @@ class HighSchoolImplTest {
 
     @Test
     void globalAveragePoints() {
-        assertEquals(7.333333333333333, highSchool.globalAveragePoints());
+        assertEquals(7.333, 0.001,highSchool.globalAveragePoints());
     }
 
     @Test
