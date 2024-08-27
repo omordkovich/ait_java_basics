@@ -1,6 +1,6 @@
 package ait.homework_31.ait.event.dao;
 
-import homework_31.ait.event.model.Event;
+import ait.homework_31.ait.event.model.Event;
 
 import java.time.LocalDate;
 

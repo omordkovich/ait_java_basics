@@ -1,10 +1,10 @@
 package ait.homework_31.ait.time.test;
 
-import homework_31.ait.time.utils.DateOperation;
+import ait.homework_31.ait.time.utils.DateOperation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DateOperationTest {
 
