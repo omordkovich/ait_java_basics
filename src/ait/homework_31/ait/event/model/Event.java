@@ -3,16 +3,14 @@ package ait.homework_31.ait.event.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Event {
+public class Event implements Comparable<Event> {
     private int idEvent;
-    private int idPlanner;
     private String title;
     private String url;
     private LocalDateTime date;
 
-    public Event(int idEvent, int idPlanner, String title, String url, LocalDateTime date) {
+    public Event(int idEvent, String title, String url, LocalDateTime date) {
         this.idEvent = idEvent;
-        this.idPlanner = idPlanner;
         this.title = title;
         this.url = url;
         this.date = date;
@@ -22,21 +20,18 @@ public class Event {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (!(object instanceof Event event)) return false;
-        return idEvent == event.idEvent && idPlanner == event.idPlanner;
+        return idEvent == event.idEvent;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEvent, idPlanner);
+        return Objects.hash(idEvent);
     }
 
     public int getIdEvent() {
         return idEvent;
     }
 
-    public int getIdPlanner() {
-        return idPlanner;
-    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -65,6 +60,11 @@ public class Event {
 
     @Override
     public String toString() {
-        return String.format("Title: %s, Event ID: %d, Planner ID: %d URL: %s, Date: %s", title, idEvent, idPlanner, url, date);
+        return String.format("Title: %s, Event ID: %d, URL: %s, Date: %s", title, idEvent, url, date);
+    }
+
+    @Override
+    public int compareTo(Event o) {
+        return this.date.compareTo(o.getDate());
     }
 }
