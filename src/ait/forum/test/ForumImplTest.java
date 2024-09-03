@@ -27,8 +27,8 @@ class ForumImplTest {
         posts[3] = new Post(117, "title1", "author3", "content");
         posts[3].setDate(LocalDateTime.now().minusDays(6));
 
-        for (int i = 0; i < posts.length; i++) {
-            forum.addPost(posts[i]);
+        for (Post post : posts) {
+            forum.addPost(post);
         }
     }
 

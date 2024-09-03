@@ -25,8 +25,8 @@ class CalendarImplTest {
         events[2] = new Event(124, "title1", "url4", LocalDateTime.now().minusDays(5));
         events[3] = new Event(932, "title3", "url6", LocalDateTime.now().minusDays(8));
 
-        for (int i = 0; i < events.length; i++) {
-            calendar.addEvent(events[i]);
+        for (Event event : events) {
+            calendar.addEvent(event);
         }
     }
 
