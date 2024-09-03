@@ -11,10 +11,7 @@ public class ForumImpl implements Forum {
     Post[] posts;
     int size;
 
-    Comparator<Post> comparator = (c1, c2) -> {
-        int res = c1.getAuthor().compareTo(c2.getAuthor());
-        return res != 0 ? res : c1.getDate().compareTo(c2.getDate());
-    };
+    Comparator<Post> comparator = Comparator.comparing(Post::getAuthor).thenComparing(Post::getDate);
 
     public ForumImpl() {
         this.posts = new Post[5];
