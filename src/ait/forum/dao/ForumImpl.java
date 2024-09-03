@@ -73,7 +73,11 @@ public class ForumImpl implements Forum {
 
     @Override
     public Post[] getPostByAuthor(String author, LocalDate dateFrom, LocalDate dateTo) {
-        return findPostsByPredicate(p -> p.getAuthor().equals(author) && p.getDate().toLocalDate().isAfter(dateFrom.minusDays(1)) && p.getDate().toLocalDate().isBefore(dateTo.plusDays(1)));
+        return findPostsByPredicate(p -> p.getAuthor().equals(author)
+                && (p.getDate().toLocalDate().isAfter(dateFrom)
+                || p.getDate().toLocalDate().equals(dateFrom))
+                && (p.getDate().toLocalDate().isBefore(dateTo)
+                || p.getDate().toLocalDate().equals(dateTo)));
     }
 
     @Override
