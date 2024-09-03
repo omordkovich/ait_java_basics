@@ -63,7 +63,7 @@ public class CalenderImpl implements Calendar {
 
     @Override
     public Event[] getEventBetweenDate(LocalDate dateFrom, LocalDate dateTo) {
-        return findPhotosByPredicate(p ->
+        return findEventByPredicate(p ->
                 (p.getDate().toLocalDate().isAfter(dateFrom)
                         || p.getDate().toLocalDate().equals((dateFrom)))
                         && (p.getDate().toLocalDate().isBefore(dateTo)
@@ -75,7 +75,7 @@ public class CalenderImpl implements Calendar {
         return size;
     }
 
-    private Event[] findPhotosByPredicate(Predicate<Event> predicate) {
+    private Event[] findEventByPredicate(Predicate<Event> predicate) {
         Event[] res = new Event[size];
         int j = 0;
         for (int i = 0; i < size; i++) {
