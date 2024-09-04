@@ -3,13 +3,26 @@ package ait.homework_33.iterator_fibonacci.ait.fibonacci.model;
 import java.util.Iterator;
 
 public class FibonacciIterator implements Iterator<Integer> {
+    private int currentIndex = 1;
+    int nextIndex = 1;
+    int curPose = 0;
+    private final int quantity;
+
+    public FibonacciIterator(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public boolean hasNext() {
-        return false;
+        return curPose < quantity;
     }
 
     @Override
     public Integer next() {
-        return 0;
+        int tmp = currentIndex;
+        currentIndex = nextIndex;
+        nextIndex = tmp + nextIndex;
+        curPose++;
+        return tmp;
     }
 }

@@ -2,8 +2,7 @@ package ait.homework_33.iterator_fibonacci.ait.fibonacci.model;
 
 import java.util.Iterator;
 
-public class Fibonacci implements Iterable<Integer>{
-
+public class Fibonacci implements Iterable<Integer> {
     private int quantity;
 
     public Fibonacci(int quantity) {
@@ -20,6 +19,6 @@ public class Fibonacci implements Iterable<Integer>{
 
     @Override
     public Iterator<Integer> iterator() {
-        return null;
+        return new FibonacciIterator(quantity);
     }
 }
