@@ -27,6 +27,9 @@ public class MyArrayIterator implements Iterator<Integer> {
 
     @Override
     public void remove() {
-        array[index-1] = null;
+        int move = length - index;
+        System.arraycopy(array, index, array, index - 1, move);
+        array[--length] = null;
+        index--;
     }
 }
