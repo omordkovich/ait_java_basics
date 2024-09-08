@@ -4,8 +4,8 @@ import java.util.Iterator;
 
 public class FibonacciIterator implements Iterator<Integer> {
     private int currentIndex = 1;
-    int nextIndex = 1;
-    int curPose = 0;
+    private int nextIndex = 1;
+    private int curPose = 0;
     private final int quantity;
 
     public FibonacciIterator(int quantity) {

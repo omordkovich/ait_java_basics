@@ -41,10 +41,11 @@ public class MyArrayAppl {
                 iterator.remove();
             }
         }
+
         for (Integer i : myArray) {
-            if (i != null) {
+           // if (i != null) {
                 System.out.print(i + "| ");
-            }
+           // }
         }
     }
 }

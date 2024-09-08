@@ -1,5 +1,6 @@
 package ait.homework_33.myarray_iterator.model;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class MyArrayIterator implements Iterator<Integer> {
@@ -29,7 +30,21 @@ public class MyArrayIterator implements Iterator<Integer> {
     public void remove() {
         int move = length - index;
         System.arraycopy(array, index, array, index - 1, move);
-        array[--length] = null;
+        length--;
+
+        array[length] = null;
+
         index--;
+
+        array = Arrays.copyOf(array, length);
+        System.out.println(Arrays.toString(array));
+
+        /*   for (int i = index-1; i < array.length-1; i++) {
+            array[i] = array[i+1];
+        }
+        array[array.length-1] = null;
+        length--;
+        array= Arrays.copyOf(array, length);
+        System.out.println(Arrays.toString(array));*/
     }
 }
