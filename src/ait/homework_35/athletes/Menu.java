@@ -13,8 +13,4 @@ public enum Menu {
     public String getDescription() {
         return description;
     }
-
-    public static Menu getByIndex(int index) {
-        return Menu.values()[index];
-    }
 }
