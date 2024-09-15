@@ -2,6 +2,7 @@ package ait.homework_33.myarray_iterator;
 
 import ait.homework_33.myarray_iterator.model.MyArray;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class MyArrayAppl {
@@ -34,18 +35,20 @@ public class MyArrayAppl {
 
         //removes even numbers from array
         System.out.println("=============Remove even numbers================");
-
         while (iterator.hasNext()) {
             Integer i = iterator.next();
             if (i % 2 == 0) {
                 iterator.remove();
             }
         }
-
-        for (Integer i : myArray) {
-           // if (i != null) {
-                System.out.print(i + "| ");
-           // }
+        iterator = myArray.iterator();
+        int l = 0;
+        while (iterator.hasNext()) {
+            if (iterator.next() != null) {
+                l++;
+            }
         }
+        array = Arrays.copyOf(array,l);
+        System.out.println(Arrays.toString(array));
     }
 }

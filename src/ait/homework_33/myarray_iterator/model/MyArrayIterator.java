@@ -28,23 +28,11 @@ public class MyArrayIterator implements Iterator<Integer> {
 
     @Override
     public void remove() {
-        int move = length - index;
-        System.arraycopy(array, index, array, index - 1, move);
-        length--;
-
-        array[length] = null;
-
-        index--;
-
-        array = Arrays.copyOf(array, length);
-        System.out.println(Arrays.toString(array));
-
-        /*   for (int i = index-1; i < array.length-1; i++) {
-            array[i] = array[i+1];
+        for (int i = index - 1; i < array.length - 1; i++) {
+            array[i] = array[i + 1];
         }
-        array[array.length-1] = null;
+        array[array.length - 1] = null;
         length--;
-        array= Arrays.copyOf(array, length);
-        System.out.println(Arrays.toString(array));*/
+        index--;
     }
 }
