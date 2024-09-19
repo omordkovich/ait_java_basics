@@ -31,19 +31,13 @@ public class UniqueNames {
         names.add("Emily");
         names.add("John");
         //copy to hash set to get a list of unique names
-        Set<String> uniqueNames = new HashSet<>();
-        for (String s : names) {
-            uniqueNames.add(s);
-        }
+        Set<String> uniqueNames = new HashSet<>(names);
         //copy back to array list for sorting
         names.clear();
-        for (String s : uniqueNames) {
-            names.add(s);
-        }
+        names.addAll(uniqueNames);
         Collections.sort(names);
         printArray(names);
     }
-
     private static <E> void printArray(List<E> list) {
         for (E e : list) {
             System.out.println(e);
