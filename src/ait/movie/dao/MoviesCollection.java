@@ -18,4 +18,6 @@ public interface MoviesCollection {
     Iterable<Movie> findMoviesCreatedBetweenDates(LocalDate from, LocalDate to);
 
     int totalQuantity();
+
+    void printCollection();
 }

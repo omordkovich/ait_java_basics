@@ -69,6 +69,17 @@ public class MoviesCollectionImpl implements MoviesCollection {
         return movies.size();
     }
 
+    @Override
+    public void printCollection() {
+        if (movies.isEmpty()) {
+            System.out.println("There is no movies available!");
+        } else {
+            for (Movie movie : movies) {
+                System.out.println(movie);
+            }
+        }
+    }
+
     private Iterable<Movie> findByPredicate(Predicate<Movie> predicate) {
         List<Movie> found = new ArrayList<>();
         for (Movie m : movies) {
@@ -78,4 +89,5 @@ public class MoviesCollectionImpl implements MoviesCollection {
         }
         return found;
     }
+
 }
