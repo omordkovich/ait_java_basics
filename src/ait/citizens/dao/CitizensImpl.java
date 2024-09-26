@@ -87,19 +87,19 @@ public class CitizensImpl implements Citizens {
     }
 
     @Override
-    //Complexity O(n)
+    //Complexity O(1)
     public Iterable<Person> getAllPersonsSortedById() {
         return idList;
     }
 
     @Override
-    //Complexity O(n)
+    //Complexity O(1)
     public Iterable<Person> getAllPersonsSortedByAge() {
         return ageList;
     }
 
     @Override
-    //Complexity O(n)
+    //Complexity O(1)
     public Iterable<Person> getAllPersonsSortedByLastName() {
         return lastNameList;
     }
