@@ -50,12 +50,21 @@ public class SupermarketSetImpl implements Supermarket {
 
     @Override
     public Product updateProduct(String barcode, double price) {
-        return null;
+        return products.stream()
+                .filter(p -> p.getBarcode().equals(barcode))
+                .findFirst()
+                .map(p -> {
+                    p.setPrice(price);
+                    return p;
+                })
+                .orElse(null);
     }
 
     @Override
     public Iterable<Product> findProductByExpirationDate(LocalDate date) {
-        return null;
+        return products.stream()
+                .filter(p -> p instanceof Food && ((Food) p).getExpDate().equals(date))
+                .toList();
     }
 
 

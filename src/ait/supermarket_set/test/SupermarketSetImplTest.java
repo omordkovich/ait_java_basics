@@ -57,16 +57,20 @@ class SupermarketSetImplTest {
 
     @Test
     void updateProduct() {
+        Product product =  supermarket.findProductByBarcode("11111111111111111114");
         supermarket.updateProduct("11111111111111111114", 10.90);
-        //   assertEquals(10.90, products[3].getPrice());
+        assertEquals(10.90, product.getPrice());
     }
 
     @Test
     void findProductByExpirationDate() {
-        //Product[] expected = {products[1], products[2]};
-        //System.out.println(products);
-        //Product[] actual = supermarket.findProductByExpirationDate(LocalDate.of(2024, 8, 9));
-        //assertArrayEquals(expected, actual);*/
+        Product product = new MeatFood("11111111111111111111", "Beef", 5.99, LocalDate.of(2024, 10, 10), "Young bull");
+        Product[] expected = {product};
+        Iterable<Product> actualIterable = supermarket.findProductByExpirationDate(LocalDate.of(2024, 10, 10));
+        List<Product> productList = new ArrayList<>();
+        actualIterable.forEach(productList::add);
+        Product[] actual = productList.toArray(new Product[1]);
+        assertArrayEquals(expected, actual);
     }
 
     @Test

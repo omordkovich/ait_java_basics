@@ -14,7 +14,7 @@ public class TouristAppl {
         //  System.out.println(tourists.toString());
         //Какие страны наиболее популярны?
         printMostPopularCountries(tourists);
-//Кто из клиентов посетил наибольшее количество стран?
+        //Кто из клиентов посетил наибольшее количество стран?
         printMostVisitingTourists(tourists);
     }
 
