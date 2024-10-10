@@ -26,8 +26,8 @@ class SupermarketImplTest {
         products[2] = new Food("11111111111111111113", "Apples", 2.99, LocalDate.of(2024, 8, 9));
         products[3] = new Product("11111111111111111114", "Batman action figure", 13.99);
 
-        for (int i = 0; i < products.length; i++) {
-            supermarket.addProduct(products[i]);
+        for (Product product : products) {
+            supermarket.addProduct(product);
         }
     }
 
@@ -37,7 +37,7 @@ class SupermarketImplTest {
         assertFalse(supermarket.addProduct(products[0]));
         Product product = new Product("11111111111111111115", "Heman action figure", 13.99);
         assertTrue(supermarket.addProduct(product));
-        product = new Product("11111111111111111118", "Videogame", 25.99);
+        product = new Product("11111111111111111118", "Video Game", 25.99);
 
         assertFalse(supermarket.addProduct(product));
     }
@@ -65,7 +65,6 @@ class SupermarketImplTest {
     @Test
     void findProductByExpirationDate() {
         Product[] expected = {products[1], products[2]};
-        System.out.println(products);
         Product[] actual = supermarket.findProductByExpirationDate(LocalDate.of(2024, 8, 9));
         assertArrayEquals(expected, actual);
     }
