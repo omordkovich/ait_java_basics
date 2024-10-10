@@ -42,7 +42,7 @@ class SupermarketSetImplTest {
     @Test
     void removeProduct() {
         assertEquals(4, supermarket.size());
-        Product victim = supermarket.removeProduct("11111111111111111112");
+        supermarket.removeProduct("11111111111111111112");
         assertEquals(3, supermarket.size());
         assertNull(supermarket.removeProduct("11111111111110000000"));
     }
@@ -63,12 +63,10 @@ class SupermarketSetImplTest {
 
     @Test
     void findProductByExpirationDate() {
-        /*ait.supermarket.model.Product[] expected = {products[1], products[2]};
-        System.out.println(products);
-        ait.supermarket.model.Product[] actual = supermarket.findProductByExpirationDate(LocalDate.of(2024, 8, 9));
-        assertArrayEquals(expected, actual);*/
-
-
+        //Product[] expected = {products[1], products[2]};
+        //System.out.println(products);
+        //Product[] actual = supermarket.findProductByExpirationDate(LocalDate.of(2024, 8, 9));
+        //assertArrayEquals(expected, actual);*/
     }
 
     @Test
