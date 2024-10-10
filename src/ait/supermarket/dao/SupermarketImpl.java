@@ -85,6 +85,11 @@ public class SupermarketImpl implements Supermarket {
         return findProductByPredicate(product -> ((Food) product).getExpDate().isBefore(date));
     }
 
+    @Override
+    public int size() {
+        return size;
+    }
+
     private Product[] findProductByPredicate(Predicate<Product> predicate) {
         int count = 0;
         for (int i = 0; i < size; i++) {

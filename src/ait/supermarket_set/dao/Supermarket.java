@@ -1,6 +1,6 @@
-package ait.supermarket.dao;
+package ait.supermarket_set.dao;
 
-import ait.supermarket.model.Product;
+import ait.supermarket_set.model.Product;
 
 import java.time.LocalDate;
 
@@ -13,13 +13,13 @@ public interface Supermarket {
 
     Product updateProduct(String barcode, double price);
 
-    Product[] findProductByExpirationDate(LocalDate date);
+    Iterable<Product> findProductByExpirationDate(LocalDate date);
 
     double totalCost();
 
     double averageCost();
 
-    Product[] findOutOfDate(LocalDate date);
+    Iterable<Product> findOutOfDate(LocalDate date);
 
     int size();
 }
