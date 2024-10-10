@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 public class TouristAppl {
     public static void main(String[] args) {
         List<Tourist> tourists = fillListTourists();
-        //  System.out.println(tourists.toString());
         //Какие страны наиболее популярны?
         printMostPopularCountries(tourists);
         //Кто из клиентов посетил наибольшее количество стран?
