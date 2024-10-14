@@ -55,18 +55,6 @@ public class ShipmentAppl {
         //печать стримом
         maxContainers
                 .forEach(c -> System.out.println(c.getLabel()));
-
-
-        //печать
-       /* containers.forEach(container -> {
-            System.out.println("Container label: " + container.getLabel());
-            container.forEach(box -> {
-                System.out.println("  Box:");
-                box.forEach(parcel -> {
-                    System.out.printf("    Parcel weight: %.2f kg\n", parcel.getWeight());
-                });
-            });
-        });*/
     }
 
     private static List<Container> findTop5Containers(List<Container> containers) {
