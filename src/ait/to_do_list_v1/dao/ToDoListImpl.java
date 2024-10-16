@@ -1,6 +1,6 @@
-package ait.to_do_list.dao;
+package ait.to_do_list_v1.dao;
 
-import ait.to_do_list.model.Task;
+import ait.to_do_list_v1.model.Task;
 
 import java.time.LocalDate;
 import java.util.Arrays;

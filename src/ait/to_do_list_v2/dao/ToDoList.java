@@ -1,6 +1,6 @@
-package ait.to_do_list.dao;
+package ait.to_do_list_v2.dao;
 
-import ait.to_do_list.model.Task;
+import ait.to_do_list_v2.model.Task;
 
 import java.time.LocalDate;
 
@@ -18,4 +18,5 @@ public interface ToDoList {
     Task removeTask(Integer id);
     //sort(*)
     Task[] sortByDate();
+    int size();
 }

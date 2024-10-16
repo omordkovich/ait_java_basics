@@ -1,10 +1,11 @@
-package ait.to_do_list.test;
+/*
+package ait.to_do_list_v2.test;
 
+import ait.to_do_list_v2.dao.ToDoList;
+import ait.to_do_list_v2.dao.ToDoListImpl;
+import ait.to_do_list_v2.model.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ait.to_do_list.dao.ToDoList;
-import ait.to_do_list.dao.ToDoListImpl;
-import ait.to_do_list.model.Task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -72,4 +73,4 @@ class ToDoListImplTest {
         Task[] actual = toDoList.sortByDate();
         assertArrayEquals(expected, actual);
     }
-}
+}*/

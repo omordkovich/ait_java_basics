@@ -1,4 +1,4 @@
-package ait.to_do_list.model;
+package ait.to_do_list_v1.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
