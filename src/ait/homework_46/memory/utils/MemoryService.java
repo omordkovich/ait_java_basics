@@ -6,15 +6,15 @@ public class MemoryService {
     public static int getMaxAvailableMemory() {
         int low = 0;
         int high = Integer.MAX_VALUE;
-        int maxSize = 0;
+        int max = 0;
         while (low <= high) {
-            int mid = low + (high - low) / 2; //calculating the middle between low an high
+            int mid = low + (high - low) / 2; //calculating the middle between low and high
             try {
-                int[] testArray = new int[mid];
-                maxSize = mid;
+                int[] arr = new int[mid];
+                max = mid;
                 low = mid + 1;
             } catch (OutOfMemoryError e) {
-                return  maxSize - 1;
+                return  max - 1;
             }
         }
         return 0;
