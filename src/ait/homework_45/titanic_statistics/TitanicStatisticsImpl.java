@@ -40,7 +40,6 @@ public class TitanicStatisticsImpl implements TitanicStatistics {
         return str.stream()
                 .filter(data -> data[1].equals("1"))
                 .collect(Collectors.groupingBy(gender -> gender[5], Collectors.counting()));
-
     }
 
     // выжили и не выжили дети

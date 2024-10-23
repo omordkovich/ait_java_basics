@@ -6,10 +6,10 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class ToDoListImpl implements ToDoList {
-    Set<Task> tasks;
+    List<Task> tasks;
 
     public ToDoListImpl() {
-        this.tasks = new TreeSet<>();
+        this.tasks = new ArrayList<>();
     }
 
     public ToDoListImpl(List<Task> tasks) {
@@ -45,10 +45,7 @@ public class ToDoListImpl implements ToDoList {
                 .findFirst()
                 .map(t1 -> {
                     t1.setTask(task.getTask());
-                    t1.setPriority(task.getPriority());
-                    t1.setStatus(task.getStatus());
                     t1.setDateOfCreation(task.getDateOfCreation());
-                    t1.setDeadLine(task.getDeadLine());
                     return t1;
                 })
                 .orElse(null);
@@ -67,11 +64,19 @@ public class ToDoListImpl implements ToDoList {
 
     @Override
     public Task[] sortByDate() {
-        return new Task[0];
+        return tasks.stream()
+                .sorted(Task::compareTo)
+                .toArray(Task[]::new);
     }
 
     @Override
     public int size() {
         return tasks.size();
+    }
+
+    @Override
+    public void printList() {
+        tasks.stream()
+                .forEach(task -> System.out.println(task));
     }
 }
