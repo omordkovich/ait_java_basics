@@ -31,22 +31,30 @@ public class ToDoAppl implements Serializable {
                 case "2" -> {
                     System.out.print("Enter task ID to remove: ");
                     input = scanner.next();
-                    if (list.findById(Integer.parseInt(input)) != null) {
-                        System.out.println(list.removeTask(Integer.parseInt(input)) + " was found!");
-                    } else {
-                        System.out.println("No task with ID: " + input + " was found!");
+                    try {
+                        if (list.findById(Integer.parseInt(input)) != null) {
+                            System.out.println(list.removeTask(Integer.parseInt(input)) + " was found!");
+                        } else {
+                            System.out.println("No task with ID: " + input + " was found!");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Try again!");
                     }
                 }
                 case "3" -> {
                     System.out.print("Enter task ID of task you want to edit: ");
                     input = scanner.next();
-                    if (list.findById(Integer.parseInt(input)) != null) {
-                        System.out.println("Enter new task: ");
-                        scanner.nextLine();
-                        String newTask = scanner.nextLine();
-                        list.updateTask(Integer.parseInt(input), newTask);
-                    } else {
-                        System.out.println("No task with ID: " + input + " was found!");
+                    try {
+                        if (list.findById(Integer.parseInt(input)) != null) {
+                            System.out.println("Enter new task: ");
+                            scanner.nextLine();
+                            String newTask = scanner.nextLine();
+                            list.updateTask(Integer.parseInt(input), newTask);
+                        } else {
+                            System.out.println("No task with ID: " + input + " was found!");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Try again!");
                     }
                 }
                 case "4" -> {
@@ -76,10 +84,12 @@ public class ToDoAppl implements Serializable {
                     list = new ToDoListImpl();
                     System.out.println("List is clean!");
                 }
-                case "8" -> flag = false;
+                case "8" -> {
+                    System.out.println("Quit TODO List!");
+                    flag = false;
+                }
                 default -> System.out.println("Wrong input!");
             }
         } while (flag);
-        list.printList();
     }
 }
