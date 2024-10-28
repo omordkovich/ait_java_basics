@@ -1,8 +1,6 @@
 package ait.to_do_list_v2.dao;
-
 import ait.to_do_list_v2.model.Task;
 
-import java.time.LocalDate;
 
 public interface ToDoList {
     //create task
@@ -11,12 +9,9 @@ public interface ToDoList {
     //find by ID
     Task findById(Integer id);
 
-    //find by date from ... till...
-    Task[] findByDate(LocalDate from, LocalDate till);
-
     // найти задачу по подстроке в строке
     //update task
-    Task updateTask(Task task);
+    Task updateTask(int id, String task);
 
     //remove
     Task removeTask(Integer id);

@@ -2,10 +2,11 @@ package ait.to_do_list_v2.dao;
 
 import ait.to_do_list_v2.model.Task;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.*;
 
-public class ToDoListImpl implements ToDoList {
+public class ToDoListImpl implements ToDoList, Serializable {
     List<Task> tasks;
 
     public ToDoListImpl() {
@@ -34,18 +35,13 @@ public class ToDoListImpl implements ToDoList {
     }
 
     @Override
-    public Task[] findByDate(LocalDate from, LocalDate till) {
-        return new Task[0];
-    }
-
-    @Override
-    public Task updateTask(Task task) {
+    public Task updateTask(int id, String task) {
         return tasks.stream()
-                .filter(t -> t.getId().equals(task.getId()))
+                .filter(t -> t.getId().equals(id))
                 .findFirst()
                 .map(t1 -> {
-                    t1.setTask(task.getTask());
-                    t1.setDateOfCreation(task.getDateOfCreation());
+                    t1.setTask(task);
+                    t1.setDateOfCreation(LocalDateTime.now());
                     return t1;
                 })
                 .orElse(null);
@@ -76,7 +72,6 @@ public class ToDoListImpl implements ToDoList {
 
     @Override
     public void printList() {
-        tasks.stream()
-                .forEach(task -> System.out.println(task));
+        tasks.forEach(task -> System.out.println(task));
     }
 }

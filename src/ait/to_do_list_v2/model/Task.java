@@ -1,16 +1,18 @@
 package ait.to_do_list_v2.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Task implements Comparable<Task> {
-    private Integer id = 0;
+public class Task implements Serializable, Comparable<Task> {
+    private static int idCounter = 0;
+    private int id;
     private String task;
     private LocalDateTime dateOfCreation;
 
     public Task(String task) {
-        this.id++;
+        this.id = ++idCounter;
         this.task = task;
         this.dateOfCreation = LocalDateTime.now();
     }
