@@ -74,4 +74,14 @@ public class ToDoListImpl implements ToDoList, Serializable {
     public void printList() {
         tasks.forEach(task -> System.out.println(task));
     }
+
+    public int findMaxID(){
+        int id = 0;
+        for (Task task : tasks) {
+           if( task.getId() >id){
+               id=task.getId();
+           }
+        }
+        return id;
+    }
 }

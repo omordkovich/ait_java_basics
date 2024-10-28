@@ -16,7 +16,9 @@ public class Task implements Serializable, Comparable<Task> {
         this.task = task;
         this.dateOfCreation = LocalDateTime.now();
     }
-
+    public static void setIdCounter(int idCounter) {
+        Task.idCounter = idCounter;
+    }
     @Override
     public String toString() {
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");

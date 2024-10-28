@@ -64,6 +64,7 @@ public class ToDoAppl implements Serializable {
                 case "5" -> {
                     try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("src/ait/to_do_list_v2/saveData/todo.dat"))) {
                         list = (ToDoListImpl) ois.readObject();
+                        Task.setIdCounter(list.findMaxID());
                         System.out.println("List Loaded!");
                     } catch (EOFException e) {
                         System.out.println("The file is empty!");
